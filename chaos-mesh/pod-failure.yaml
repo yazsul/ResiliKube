@@ -1,0 +1,14 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: nginx-pod-failure # should be configurable
+  namespace: app # should be configurable
+spec:
+  action: pod-failure 
+  mode: one           
+  duration: '5m'
+  selector:
+    namespaces:
+      - app-demo
+    labelSelectors:
+      app: nginx # should be configurable
